@@ -33,8 +33,7 @@ class Presentational extends React.Component{
 		super(props);
 		
 		this.state = {
-			input: '',
-			messages: []
+			input: ''
 		}
 		
 		this.handleChange = this.handleChange.bind(this);
@@ -49,15 +48,14 @@ class Presentational extends React.Component{
 	}
 	
 	submitMessage() {
+		this.props.submitNewMessage(this.state.input);
 		this.setState({
-			input:'',
-			messages: [...this.state.messages, this.state.input]
+			input:''
 		});
 	}
 	
 	render(){
-		console.log(this.state)
-		const message = this.state.messages.map(i => <li>{i}</li>);
+		const message = this.props.messages.map((i,idx) => <li key={idx}>{i}</li>);
 		return(
 			<div>
 				<h2> Type in a new message:</h2>
@@ -91,9 +89,7 @@ const mapDispatchToProps = (dispatch) => {
 const Container = connect(mapStateToProps, mapDispatchToProps)(Presentational);
 
 class AppWrapper extends React.Component {
-	constructor(props){
-		super(props);
-	}
+	
   render(){
     return(
 		<Provider store={store}>
