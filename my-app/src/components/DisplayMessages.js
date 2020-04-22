@@ -1,4 +1,32 @@
 import React from 'react';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+const ADD = 'ADD';
+
+const addMessage = (message) => {
+  return {
+    type: ADD,
+    message
+  }
+};
+
+const messageReducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return [
+        ...state,
+        action.message
+      ];
+    default:
+      return state;
+  }
+};
+
+
+
+const store = createStore(messageReducer);
+
 
 class DisplayMessages extends React.Component{
 	constructor(props){
@@ -44,5 +72,17 @@ class DisplayMessages extends React.Component{
 	}
 };
 
+class AppWrapper extends React.Component {
+  // render the Provider here
+  render(){
+    return(
+  <Provider store={store}>
+      <DisplayMessages/>
+  </Provider>)
+  }
+  // change code above this line
 
-export default DisplayMessages;
+};
+
+
+export default AppWrapper;
