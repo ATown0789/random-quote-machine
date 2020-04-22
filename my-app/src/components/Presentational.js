@@ -1,13 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { Provider, connect } from 'react-redux';
+import { createStore } from 'redux';
 
+
+//Redux
 const ADD = 'ADD';
 
 const addMessage = (message) => {
   return {
     type: ADD,
-    message
+    message: message
   }
 };
 
@@ -23,12 +25,10 @@ const messageReducer = (state = [], action) => {
   }
 };
 
-
-
 const store = createStore(messageReducer);
 
-
-class DisplayMessages extends React.Component{
+//React
+class Presentational extends React.Component{
 	constructor(props){
 		super(props);
 		
@@ -72,16 +72,34 @@ class DisplayMessages extends React.Component{
 	}
 };
 
+//React-Redux
+
+const mapStateToProps = (state) => {
+  return {
+    messages: state
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitNewMessage: (message) => {
+      dispatch(addMessage(message));
+    }
+  }
+};
+
+const Container = connect(mapStateToProps, mapDispatchToProps)(Presentational);
+
 class AppWrapper extends React.Component {
-  // render the Provider here
+	constructor(props){
+		super(props);
+	}
   render(){
     return(
-  <Provider store={store}>
-      <DisplayMessages/>
-  </Provider>)
+		<Provider store={store}>
+			<Container/>
+		</Provider>)
   }
-  // change code above this line
-
 };
 
 
