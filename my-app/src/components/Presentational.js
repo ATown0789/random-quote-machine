@@ -47,11 +47,12 @@ class Presentational extends React.Component{
 		});	
 	}
 	
-	submitMessage() {
+	submitMessage(event) {
 		this.props.submitNewMessage(this.state.input);
 		this.setState({
 			input:''
 		});
+		event.preventDefault();
 	}
 	
 	render(){
@@ -59,12 +60,15 @@ class Presentational extends React.Component{
 		return(
 			<div>
 				<h2> Type in a new message:</h2>
-				<input 
-					onChange = {this.handleChange}
-					value = {this.state.input}
-				/>
-				<button onClick = {this.submitMessage}>Submit Message</button>
-				<ul>{message}</ul>			
+				<form onSubmit = {this.submitMessage}>
+					<input 
+						onChange = {this.handleChange}
+						value = {this.state.input}
+					/>
+						<br/>
+					<button type = "submit">Submit Message</button>
+				</form>
+				<ul>{message}</ul>	
 			</div>
 		);
 	}
