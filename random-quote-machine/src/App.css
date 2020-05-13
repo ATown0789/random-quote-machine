@@ -8,24 +8,25 @@ body{
 	text-align:center;
 	display: flex;
 	flex-direction: column;
-	background:blue;
+	background:lightgray;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:100px;
+	max-width:500px;
 	width:75%;
 	border-radius:10px;
 	white-space: pre-wrap;
 }
 
 #text {
-	background:orange;
+	background:lightgray;
 	margin-left:auto;
 	margin-right:auto;
 	width:80%;
 }
 
 #author{
-	background:purple;
+	background:lightgraye;
 	margin-left:auto;
 	margin-right:auto;
 	width:80%;
@@ -35,7 +36,7 @@ body{
 	
 	text-decoration:none;
 	color:black;
-	background: yellow;
+	background: lightgray;
 	margin-left:10px;
 }
 
@@ -48,7 +49,7 @@ body{
 .buttonTweetCont{
 	
 	display:flex;
-	background:green;
+	background:lightgray;
 	justify-content:space-between;
 	align-items:center;
 	border-radius:0 0 10px 10px;

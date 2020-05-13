@@ -9,7 +9,7 @@ class App extends React.Component {
 		super(props);
 		
 		this.state = { 
-			quoteText: 'We are what we repeatedly do.\n Excellence, then,\n is not an act,\n but a habit.',
+			quoteText: 'We are what we repeatedly do.\n Excellence, then,\n is not an act, but a habit.',
 			author: 'Will Durant', 
 			data: null,
 			colors: [
