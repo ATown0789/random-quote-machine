@@ -1,0 +1,90 @@
+body{
+	background:gray;
+}
+
+#quote-box{
+	
+	height:350px;
+	text-align:center;
+	display: flex;
+	flex-direction: column;
+	background:blue;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:100px;
+	width:75%;
+	border-radius:10px;
+	white-space: pre-wrap;
+}
+
+#text {
+	background:orange;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+}
+
+#author{
+	background:purple;
+	margin-left:auto;
+	margin-right:auto;
+	width:80%;
+}
+
+#tweet-quote{
+	
+	text-decoration:none;
+	color:black;
+	background: yellow;
+	margin-left:10px;
+}
+
+#new-quote{
+	width:20%;
+	margin: 10px;
+	padding:4px;
+}
+
+.buttonTweetCont{
+	
+	display:flex;
+	background:green;
+	justify-content:space-between;
+	align-items:center;
+	border-radius:0 0 10px 10px;
+	
+}
+
+.textCont{
+	
+	height:303px;
+}
+
+.fade-in{
+	animation: fadeIn 2s;
+}
+
+.fade-out{
+	animation: fadeOut 2s;
+}
+
+@keyframse fadeIn{
+	from{
+		opacity:0;
+	}
+	
+	to{
+		opacity:1;
+	}
+}
+
+@keyframse fadeOut{
+	from{
+		opacity:1;
+	}
+	
+	to{
+		opacity:0;
+	}
+}
+
