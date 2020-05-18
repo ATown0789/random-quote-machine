@@ -1,9 +1,15 @@
-.wrapper{
+html, body, #root,
+.wrapper {
 	height:100%;
-	background:blue;
+}
+
+.wrapper{
+	padding-top:100px;
+	min-height:100%;
+	background:lightblue;
+	
 }
 .fa-twitter{
-	
 	background:black;
 	color:white;
 	padding:5px;
@@ -11,22 +17,32 @@
 	font-size:24px;
 }
 
-#quote-box{
+.transition{
 	
-	height:350px;
+  transition: height 1000ms ease-in-out;
+}
+
+h1{
 	text-align:center;
+}
+
+#quote-box{
+	margin-left:auto;
+	margin-right:auto;
+	min-height:350px;
+	text-align:left;
 	display: flex;
 	flex-direction: column;
 	background:lightgray;
-	margin-left:auto;
-	margin-right:auto;
 	max-width:500px;
 	width:75%;
 	border-radius:10px;
 	white-space: pre-wrap;
+	transition:flex 1s ease-out;
 }
 
 #text {
+	text-align:center;
 	background:lightgray;
 	margin-left:auto;
 	margin-right:auto;
@@ -34,24 +50,27 @@
 }
 
 #author{
-	background:lightgraye;
-	margin-left:auto;
-	margin-right:auto;
-	width:80%;
+	text-align:right;
+	width:90%;
 }
 
 #tweet-quote{
-	
+	display:inline-block;
 	text-decoration:none;
 	color:black;
 	background: lightgray;
 	margin-left:10px;
+	width:20%;
 }
 
 #new-quote{
-	width:20%;
+	display:inline-block;
+	background:orange;
+	font-size:16px;
+	font-weight:600;
+	width:40%;
 	margin: 10px;
-	padding:4px;
+	padding:10px 5px;
 }
 
 .buttonTweetCont{
@@ -64,36 +83,4 @@
 	
 }
 
-.textCont{
-	
-	height:303px;
-}
-
-.fade-in{
-	animation: fadeIn 2s;
-}
-
-.fade-out{
-	animation: fadeOut 2s;
-}
-
-@keyframse fadeIn{
-	from{
-		opacity:0;
-	}
-	
-	to{
-		opacity:1;
-	}
-}
-
-@keyframse fadeOut{
-	from{
-		opacity:1;
-	}
-	
-	to{
-		opacity:0;
-	}
-}
 
