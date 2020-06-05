@@ -1,5 +1,6 @@
 import React from 'react';
-import QuotesInfo from './QuotesInfo';
+
+let newQuoteData = null;
 
 
 class NewQuoteButton extends React.Component {
@@ -9,12 +10,25 @@ class NewQuoteButton extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 	}
 	
+	componentDidMount(){
+		fetch( "http://quotes.stormconsultancy.co.uk/random.json")
+			.then(response => response.json())
+			.then(data => (newQuoteData = data));
+	}
+	
+	
 	handleClick(){
-		this.props.addNewQuote(QuotesInfo(this.props.state.data));
+		
+		fetch( "http://quotes.stormconsultancy.co.uk/random.json")
+			.then(response => response.json())
+			.then(data => (newQuoteData = data));
+		
+		this.props.addNewQuote(newQuoteData);
 	}
 		
 	
 	render(){
+		
 		return(
 			<button id = 'new-quote' onClick = {this.handleClick}>New Quote</button>
 		);

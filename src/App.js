@@ -32,33 +32,25 @@ class App extends React.Component {
 		}
 		
 		this.addNewQuote = this.addNewQuote.bind(this)
+		
 	}
 	
 	
-	addNewQuote(newQuote){
+	addNewQuote(newQuoteData){
 		if(indexCount < this.state.colors.length)
 		indexCount++;
 		else
 		indexCount = 0;
 		
 		this.setState({
-			quoteText: newQuote.text,
-			author: newQuote.author,
+			quoteText: newQuoteData.quote,
+			author: newQuoteData.author,
 			style: {backgroundColor: this.state.colors[indexCount],
 					transition: "all 1s ease",
 					WebkitTransition: "all 1s ease",
 					MozTransition: "all 1s ease"}
 		})	
 	}
-	
-	componentDidMount(){
-		fetch("https://type.fit/api/quotes")
-			.then(response => response.json())
-			.then(data => this.setState({data}));
-	}
-	
-	
-	
 	
 	
 	render(){		
